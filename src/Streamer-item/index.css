@@ -1,0 +1,50 @@
+.stream-item {
+  width: 100%;
+  display: block;
+  align-items: center;
+  max-height: 100px;
+  color: #000;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.stream-item:hover {
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+.stream-img {
+  max-width: 85px;
+  margin-right: 20px;
+  float: left;
+}
+
+.streaming {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  border-top-left-radius: 4px;
+  font-size: 12px;
+  padding: 1px 4px;
+}
+.streaming.online {
+  background: #23803a;
+}
+.streaming.offline {
+  background: #aa2211;
+}
+.stream-name,
+.stream-game,
+.stream-status {
+  display: block;
+  margin-top: 7px;
+}
+.stream-game,
+.stream-status{
+  font-size: 14px;
+  color: #585858;
+}
+

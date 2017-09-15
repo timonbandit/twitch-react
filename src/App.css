@@ -1,0 +1,33 @@
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.streamers {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.filter {
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  padding: 15px 0;
+}
+.filter input {
+  display: none;
+}
+.filter label {
+  padding: 2px 4px;
+  margin: 2px;
+  cursor: pointer;
+
+}
+.filter input:checked+label {
+  background: lightgray;
+}
+.filter #offline+label {
+  color: #aa2211;
+}
+.filter #online+label {
+  color: #23803a;
+}

@@ -1,0 +1,17 @@
+.header {
+  background: #222;
+  padding: 10px 10px 10px 60px;
+  margin-bottom: 10px;
+}
+.main-menu {
+  list-style-type: none;
+}
+.main-menu li {
+  display: inline-block;
+  padding: 5px;
+}
+
+.main-menu li a {
+  color: #fff;
+  text-decoration: none;
+}
