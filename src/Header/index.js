@@ -8,8 +8,6 @@ export default class Header extends Component {
       <div className="header">
         <nav className="main-menu">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/stream">Stream</Link></li>
-          <li><Link to="/products">Products</Link></li>
         </nav>
       </div>
     )

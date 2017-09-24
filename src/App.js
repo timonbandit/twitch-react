@@ -43,9 +43,9 @@ class App extends Component {
           data.uid = key;
           let joined = this.state.stream.concat(data);
           this.setState({stream: joined})
-        })
+        });
 
-
+      return true;
     });
   }
 
@@ -86,10 +86,10 @@ class App extends Component {
               status = currentStream.stream.channel.status
             }
             if (this.state.filter === "offline" && streaming !== "offline") {
-              return;
+              return false;
             }
             if (this.state.filter === "online" && streaming !== "online") {
-              return;
+              return true;
             }
             return (<StreamerItem
               display_name={item.display_name}

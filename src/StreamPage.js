@@ -29,15 +29,21 @@ export default class StreamPage extends Component {
     ajax_get(this.apiAddr + "streams/" + this.user)
       .then(JSON.parse)
       .then((data) => {
-        this.setState({stream: data.stream})
+        this.setState({stream: data.stream});
       }).catch((err) => {
       this.setState({stream: "nothing"});
       console.log(err)
     });
   }
 
-
   render() {
+    if (this.state.stream) {
+      this.status = "Loading...";
+    }
+    else {
+      this.status = "Sorry, this stream is Offline.";
+    }
+
     return (
       <div>
         <Header/>
@@ -46,26 +52,25 @@ export default class StreamPage extends Component {
             <h1>{this.props.match.params.id}</h1>
           </div>
 
-          {this.state.stream.channel ?
+          {this.state.stream && this.state.stream.channel ?
             <div>
               <div className="stream">
-                <iframe src={"https://player.twitch.tv/?channel="+this.state.stream.channel.display_name} frameBorder="0" allowFullScreen={true} scrolling="no" height="378" width="620"></iframe>
+                <iframe title="main-stream" src={"https://player.twitch.tv/?channel=" + this.state.stream.channel.display_name}
+                        frameBorder="0" allowFullScreen={true} scrolling="no" height="378" width="620"></iframe>
               </div>
-            <div className="stream_info">
-              <div className="left-aside">
-                {console.log(this.state.stream)}
-                <div className="stream_name">{this.state.stream.channel.display_name}</div>
-                <div className="stream_game">{this.state.stream.game}</div>
-                <div className="stream_description">{this.state.stream.channel.status}</div>
-
+              <div className="stream_info">
+                <div className="left-aside">
+                  <div className="stream_name">{this.state.stream.channel.display_name}</div>
+                  <div className="stream_game">{this.state.stream.game}</div>
+                  <div className="stream_description">{this.state.stream.channel.status}</div>
+                </div>
+                <div className="right-aside">
+                  <div className="stream_viewers">Зрителей: {this.state.stream.viewers}</div>
+                  <div className="stream_views">Просмотров: {this.state.stream.channel.views}</div>
+                  <div className="stream_link"><a href={this.state.stream.channel.url}>Посмотреть на твиче</a></div>
+                </div>
               </div>
-              <div className="right-aside">
-                <div className="stream_viewers">Зрителей: {this.state.stream.viewers}</div>
-                <div className="stream_views">Просмотров: {this.state.stream.channel.views}</div>
-                <div className="stream_link"><a href={this.state.stream.channel.url}>Посмотреть на твиче</a></div>
-              </div>
-            </div>
-            </div> : <div>Loading...</div>
+            </div> : <div>{this.status}</div>
           }
         </div>
       </div>)
