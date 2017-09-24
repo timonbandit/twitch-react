@@ -33,8 +33,8 @@ ReactDOM.render(
   <Router>
     <div>
       <Switch>
-        <Route exact path="/" render={() => <App streamers={streamersList}/>}/>
-        <Route path="/stream/:id" component={StreamPage}/>
+        <Route exact path="/twitch-react/" render={() => <App streamers={streamersList}/>}/>
+        <Route path="/twitch-react/stream/:id" component={StreamPage}/>
         <Route component={page404}/>
       </Switch>
     </div>

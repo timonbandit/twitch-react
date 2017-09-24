@@ -7,7 +7,7 @@ export default class Header extends Component {
     return (
       <div className="header">
         <nav className="main-menu">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/twitch-react/">Home</Link></li>
         </nav>
       </div>
     )
